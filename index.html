@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Birthday ✨</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="image/icon.png" radius="16" style="border-radius: 50%;">
+</head>
+<body>
+
+<div id="ambient" aria-hidden="true"></div>
+
+<button class="music-toggle" id="musicToggle" aria-label="Toggle background music" title="Toggle music">🎵</button>
+<!-- Replace the src below with a song you like -->
+<audio id="bgMusic" loop preload="none">
+  <source src="" type="audio/mpeg">
+</audio>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-badge">You are Getting Older day by day</div>
+  <h1 class="script">Happy Birthday<br>Basata Roka</h1>
+  <p class="subtitle">"Today the world is brighter because of you"</p>
+  <button class="hero-btn" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">Open Your Surprise →</button>
+  <div class="scroll-hint">↓</div>
+</section>
+
+<!-- ================= LETTER ================= -->
+<section class="section letter-wrap" id="letter">
+  <span class="eyebrow">A Note For You</span>
+  <h2 class="section-title">My Dearest</h2>
+  <div class="letter-card" data-aos="fade-up">
+    <p class="letter-body">My dearest Basata Roka,
+
+Another year of your beautiful existence, and I still find myself amazed by how special you are.
+
+You make ordinary days feel magical, and your smile has the power to light up even the darkest moments.
+
+Today is all about celebrating the incredible person you are — kind, strong, funny, and full of so much light.
+
+I hope this year brings you everything your heart desires and more.
+
+Happy Birthday, my favorite person.</p>
+    <p class="letter-signoff">With all my love, D...</p>
+  </div>
+</section>
+
+<!-- ================= WONDERFUL YOU ================= -->
+<section class="section wonderful-wrap" id="wonderful">
+  <span class="eyebrow">Wonderful You</span>
+  <h2 class="section-title">What Makes You So Amazing</h2>
+  <div class="wonderful-slider" data-aos="fade-up">
+    <button class="slider-nav slider-prev" id="sliderPrev" aria-label="Previous">‹</button>
+    <div class="wonderful-track-wrapper">
+      <div class="wonderful-track" id="wonderfulTrack">
+        <article class="wonderful-card" style="background-image:url('image/1.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🌟</p>
+            <h3>Your quiet light</h3>
+            <p>Even in silence, your gentle presence fills the room with comfort and warmth.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/2.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">💬</p>
+            <h3>Softly understood</h3>
+            <p>Your calm words and caring gaze make everyone feel safe and deeply seen.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/3.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🎨</p>
+            <h3>Grace in every gesture</h3>
+            <p>The way you move through life is quiet, beautiful, and touched by your own gentle magic.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/4.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🕊️</p>
+            <h3>Calm strength</h3>
+            <p>Your silent courage is a steady anchor — strong, humble, and endlessly inspiring.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/5.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">💛</p>
+            <h3>Pure soul</h3>
+            <p>Your heart is gentle and true, and being close to you feels like coming home.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/6.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">✨</p>
+            <h3>Charming stillness</h3>
+            <p>There is a beautiful grace in your quiet — it leaves a soft, unforgettable impression.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/7.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🌿</p>
+            <h3>Gentle glow</h3>
+            <p>Your calm kindness shines without saying much, and it makes everything feel better.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/8.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🌸</p>
+            <h3>Soft elegance</h3>
+            <p>You move through life with grace, and every quiet moment with you feels precious.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/9.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🕯️</p>
+            <h3>Silent warmth</h3>
+            <p>Your calm soul brings more comfort than any loud declaration ever could.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/10.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">💫</p>
+            <h3>True beauty</h3>
+            <p>Your beauty is gentle and real — it grows from the kindness in your heart.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/11.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">💌</p>
+            <h3>Quiet devotion</h3>
+            <p>The way you care without asking is one of the most precious things I know.</p>
+          </div>
+        </article>
+        <article class="wonderful-card" style="background-image:url('image/12.jpeg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🌙</p>
+            <h3>Calm grace</h3>
+            <p>In your stillness there is a power that makes every challenge feel gentler.</p>
+          </div>
+        </article>
+         <article class="wonderful-card" style="background-image:url('image/13.png');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🥀</p>
+            <h3>Quiet magic</h3>
+            <p>There is something quietly extraordinary about the way you are, and I adore it.</p>
+          </div>
+        </article>
+         <article class="wonderful-card" style="background-image:url('image/14.jpg');">
+          <div class="wonderful-card-overlay"></div>
+          <div class="wonderful-card-copy">
+            <p class="card-emoji">🌈</p>
+            <h3>Pure soul</h3>
+            <p>Your pure heart and gentle spirit make each day brighter and more beautiful.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <button class="slider-nav slider-next" id="sliderNext" aria-label="Next">›</button>
+  </div>
+  <div class="slider-dots" id="sliderDots"></div>
+</section>
+
+<!-- ================= INTERACTIVE SURPRISE ================= -->
+<section class="section surprise-wrap" id="surprise">
+  <span class="eyebrow">Just For You</span>
+  <h2 class="section-title">A Little Surprise</h2>
+  <p class="surprise-intro">Click the gift to unlock something special I made just for you…</p>
+
+  <div class="gift" id="giftBox" role="button" tabindex="0" aria-label="Open gift">
+    <div class="gift-lid"><span class="gift-bow">🎀</span></div>
+    <div class="gift-box"></div>
+  </div>
+  <p class="gift-hint" id="giftHint">tap the gift ✦</p>
+
+  <div class="surprise-panels" id="surprisePanels">
+    <div class="panel">
+      <h3>Scratch to reveal a wish</h3>
+      <div class="scratch-stage">
+        <div class="scratch-reveal">You are loved beyond measure — Happy Birthday! 🎉</div>
+        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+      </div>
+      <p class="scratch-tip">✦ drag your finger / mouse across the gold</p>
+    </div>
+    <div class="panel">
+      <h3>Make a wish 🕯️</h3>
+      <div class="cake">
+        <div class="candles" id="candles">
+          <div class="candle" data-i="1"><span class="flame"></span></div>
+          <div class="candle" data-i="2"><span class="flame"></span></div>
+          <div class="candle" data-i="3"><span class="flame"></span></div>
+          <div class="candle" data-i="4"><span class="flame"></span></div>
+          <div class="candle" data-i="5"><span class="flame"></span></div>
+        </div>
+        <div class="cake-body">
+          <div class="tier top"></div>
+          <div class="tier bottom"></div>
+        </div>
+        <p class="cake-msg" id="cakeMsg">tap each candle to blow it out</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REASONS ================= -->
+<section class="section reasons-wrap" id="reasons">
+  <span class="eyebrow">In Case You Forgot</span>
+  <h2 class="section-title">Reasons Why the World Is Lucky to Have You</h2>
+  <div class="reasons-grid">
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="0"><span class="emoji">🌤️</span>Your smile can brighten any room</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="60"><span class="emoji">🤍</span>The way you care for people around you</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="120"><span class="emoji">🎈</span>How you make everything more fun</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="180"><span class="emoji">🌱</span>Your strength even on hard days</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="240"><span class="emoji">✨</span>That little habit of yours I secretly love</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="300"><span class="emoji">🏡</span>The way you make me feel safe and happy</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="360"><span class="emoji">💛</span>Your kindness that never goes unnoticed</div>
+    <div class="reason-card" data-aos="fade-up" data-aos-delay="420"><span class="emoji">🦋</span>Simply being you</div>
+  </div>
+</section>
+
+<!-- ================= VOICE ================= -->
+<section class="section voice-wrap" id="voice">
+  <span class="eyebrow">From My Heart</span>
+  <h2 class="section-title">A Little Something from My Heart</h2>
+  <p class="voice-desc">I wanted to say this in my own voice…</p>
+  <button class="play-btn" id="voiceBtn" aria-label="Play voice message">▶</button>
+  <p class="voice-status" id="voiceStatus">Press play when you're ready</p>
+  <!-- Replace the src below with your recorded voice note or video file -->
+  <audio id="voiceNote" preload="none">
+    <source src="" type="audio/mpeg">
+  </audio>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="section gallery-wrap" id="gallery">
+  <span class="eyebrow">Memories</span>
+  <h2 class="section-title">Moments worth holding close</h2>
+  <p class="gallery-desc">A simple collection of memories.</p>
+  <div class="gallery-grid" style="align-content: center;">
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/1.jpeg" alt="Memory 1" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/2.jpeg" alt="Memory 2" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/3.jpeg" alt="Memory 3" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/4.jpeg" alt="Memory 4" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/5.jpeg" alt="Memory 5" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/6.jpeg" alt="Memory 6" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/7.jpeg" alt="Memory 7" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/8.jpeg" alt="Memory 8" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/9.jpeg" alt="Memory 9" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/10.jpeg" alt="Memory 10" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/11.jpeg" alt="Memory 11" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/12.jpeg" alt="Memory 12" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/13.png" alt="Memory 13" />
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-thumb" src="image/14.jpg" alt="Memory 14" />
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final" id="final">
+  <h2 class="script">Basata Roka,</h2>
+  <p>May this new year of your life be filled with endless laughter, beautiful surprises, and moments that make your heart full. You deserve all the love, success, and happiness in the world. Happy Birthday once again. I love you more than words can say.</p>
+  <p class="signoff">Always yours, D...</p>
+
+ </section>
+
+<footer>made with ♡ Purity </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- ambient petals ---------- */
+  if(!reduceMotion){
+    const ambient = document.getElementById('ambient');
+    const emojis = ['🌸','💮','🤍','🎈','✨'];
+    for(let i=0;i<16;i++){
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      p.style.left = Math.random()*100 + 'vw';
+      p.style.animationDuration = (10 + Math.random()*10) + 's';
+      p.style.animationDelay = (Math.random()*12) + 's';
+      p.style.setProperty('--drift', (Math.random()*80-40) + 'px');
+      p.style.fontSize = (0.8 + Math.random()*0.8) + 'rem';
+      ambient.appendChild(p);
+    }
+  }
+
+  /* ---------- hero balloons + sparkles ---------- */
+  const hero = document.getElementById('hero');
+  const balloonColors = ['#FFD1DC','#D4F1F4','#E8D5F2','#FFF5BA'];
+  for(let i=0;i<7;i++){
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    b.style.left = (5 + Math.random()*90) + '%';
+    b.style.background = balloonColors[i % balloonColors.length];
+    b.style.borderTopColor = balloonColors[i % balloonColors.length];
+    b.style.animationDuration = (10 + Math.random()*8) + 's';
+    b.style.animationDelay = (Math.random()*10) + 's';
+    hero.appendChild(b);
+  }
+  for(let i=0;i<28;i++){
+    const s = document.createElement('span');
+    s.className = 'sparkle';
+    const size = 3 + Math.random()*4;
+    s.style.width = size+'px'; s.style.height = size+'px';
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    s.style.animationDuration = (1.6 + Math.random()*2.4) + 's';
+    s.style.animationDelay = (Math.random()*3) + 's';
+    hero.appendChild(s);
+  }
+
+  /* ---------- music toggle ---------- */
+  const musicBtn = document.getElementById('musicToggle');
+  const bgMusic = document.getElementById('bgMusic');
+  let musicOn = false;
+  musicBtn.addEventListener('click', () => {
+    if(!bgMusic.querySelector('source').src){
+      musicBtn.textContent = '🎵';
+      musicBtn.title = 'Add a song file to enable music';
+      return;
+    }
+    musicOn = !musicOn;
+    if(musicOn){ bgMusic.play().catch(()=>{}); musicBtn.classList.add('spinning'); musicBtn.textContent='🔊'; }
+    else { bgMusic.pause(); musicBtn.classList.remove('spinning'); musicBtn.textContent='🎵'; }
+  });
+
+  /* ---------- gift box ---------- */
+  const gift = document.getElementById('giftBox');
+  const panels = document.getElementById('surprisePanels');
+  const giftHint = document.getElementById('giftHint');
+  let giftOpened = false;
+  function openGift(){
+    if(giftOpened) return;
+    giftOpened = true;
+    gift.classList.add('open');
+    panels.classList.add('show');
+    giftHint.textContent = 'enjoy ✦';
+    sizeScratchCanvas();
+  }
+  gift.addEventListener('click', openGift);
+  gift.addEventListener('keydown', e => { if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openGift(); }});
+
+  /* ---------- scratch card ---------- */
+  const canvas = document.getElementById('scratchCanvas');
+  const ctx = canvas.getContext('2d');
+  function sizeScratchCanvas(){
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width; canvas.height = rect.height;
+    const grad = ctx.createLinearGradient(0,0,rect.width,rect.height);
+    grad.addColorStop(0,'#e8c15a'); grad.addColorStop(1,'#f4d67e');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,rect.width,rect.height);
+    ctx.font = '600 14px Poppins, sans-serif';
+    ctx.fillStyle = '#2C3E50';
+    ctx.textAlign = 'center';
+    ctx.fillText('✂ scratch me ✦', rect.width/2, rect.height/2);
+  }
+  let scratching = false;
+  function scratchAt(x,y){
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x,y,18,0,Math.PI*2);
+    ctx.fill();
+  }
+  function getPos(e, rect){
+    const t = e.touches ? e.touches[0] : e;
+    return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+  }
+  canvas.addEventListener('pointerdown', e => { scratching = true; const r=canvas.getBoundingClientRect(); const p=getPos(e,r); scratchAt(p.x,p.y); });
+  window.addEventListener('pointerup', () => scratching = false);
+  canvas.addEventListener('pointermove', e => { if(!scratching) return; const r=canvas.getBoundingClientRect(); const p=getPos(e,r); scratchAt(p.x,p.y); });
+
+  /* ---------- cake candles ---------- */
+  const candleEls = document.querySelectorAll('.candle');
+  const cakeMsg = document.getElementById('cakeMsg');
+  candleEls.forEach(c => {
+    c.addEventListener('click', () => {
+      c.classList.add('out');
+      const allOut = [...candleEls].every(el => el.classList.contains('out'));
+      if(allOut){
+        cakeMsg.textContent = 'Your wish has been sent to the universe 🌠';
+        fireConfetti(0.6);
+      }
+    });
+  });
+
+  /* ---------- voice / video button ---------- */
+  const voiceBtn = document.getElementById('voiceBtn');
+  const voiceNote = document.getElementById('voiceNote');
+  const voiceStatus = document.getElementById('voiceStatus');
+  let voicePlaying = false;
+  voiceBtn.addEventListener('click', () => {
+    if(!voiceNote.querySelector('source').src){
+      voiceStatus.textContent = 'Add your recorded message file to hear this 🎙️';
+      return;
+    }
+    if(!voicePlaying){ voiceNote.play(); voiceBtn.textContent='❚❚'; voiceStatus.textContent='Playing…'; }
+    else { voiceNote.pause(); voiceBtn.textContent='▶'; voiceStatus.textContent='Paused'; }
+    voicePlaying = !voicePlaying;
+  });
+  voiceNote.addEventListener('ended', () => { voicePlaying=false; voiceBtn.textContent='▶'; voiceStatus.textContent='Press play when you\\'re ready'; });
+
+  /* ---------- confetti on final section ---------- */
+  function fireConfetti(power){
+    if(typeof confetti !== 'function') return;
+    confetti({ particleCount: 120*power, spread: 90, origin:{y:0.6}, colors:['#E8D5F2','#D4F1F4','#FFD1DC','#FFF5BA'] });
+  }
+  const final = document.getElementById('final');
+  let finalFired = false;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !finalFired){
+        finalFired = true;
+        fireConfetti(1);
+        setTimeout(()=>fireConfetti(0.6), 400);
+      }
+    });
+  }, { threshold: 0.5 });
+  io.observe(final);
+
+  /* ---------- send a wish back ---------- */
+  const wishForm = document.getElementById('wishForm');
+  wishForm.addEventListener('submit', e => {
+    e.preventDefault();
+    wishForm.style.display = 'none';
+    document.getElementById('wishSent').style.display = 'block';
+    fireConfetti(0.5);
+  });
+});
+</script>
+<script src="script.js"></script>
+</body>
+</html>
