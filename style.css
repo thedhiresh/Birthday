@@ -449,10 +449,13 @@ img{max-width:100%; display:block;}
 .reason-card{
   background:var(--paper); border-radius:16px; padding:1.4rem 1.3rem;
   box-shadow:0 10px 24px rgba(44,62,80,0.1);
-  font-size:.92rem;
-  display:flex; gap:.7rem; align-items:flex-start;
+  display:flex; gap:1rem; align-items:flex-start;
 }
-.reason-card .emoji{ font-size:1.3rem; }
+.reason-card .emoji{ font-size:1.5rem; margin-top:0.2rem; }
+.reason-copy{display:flex; flex-direction:column; gap:0.45rem;}
+.reason-copy h3{font-family:'Playfair Display', serif; font-size:1.05rem; margin:0;}
+.reason-copy p{margin:0; color:#3d4f61; line-height:1.65; font-size:.95rem;}
+.reason-copy p:first-letter{text-transform:none;}
 
 /* ================= VOICE ================= */
 .voice-wrap{ text-align:center; background:linear-gradient(180deg, var(--paper), var(--pink) 160%); }
