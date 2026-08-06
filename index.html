@@ -345,6 +345,13 @@ Happy Birthday, my favorite person.</p>
     </div>
 
   </div>
+  <!-- Gallery modal popup -->
+  <div id="galleryModal" class="modal" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="modal-close" id="galleryClose" aria-label="Close">✕</button>
+    <button class="modal-prev" id="galleryPrev" aria-label="Previous">‹</button>
+    <img id="galleryImage" src="" alt="" class="modal-image" />
+    <button class="modal-next" id="galleryNext" aria-label="Next">›</button>
+  </div>
 </section>
 
 <!-- ================= FINAL ================= -->
@@ -516,14 +523,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   io.observe(final);
 
-  /* ---------- send a wish back ---------- */
+  /* ---------- send a wish back (guarded) ---------- */
   const wishForm = document.getElementById('wishForm');
-  wishForm.addEventListener('submit', e => {
-    e.preventDefault();
-    wishForm.style.display = 'none';
-    document.getElementById('wishSent').style.display = 'block';
-    fireConfetti(0.5);
-  });
+  if (wishForm) {
+    wishForm.addEventListener('submit', e => {
+      e.preventDefault();
+      wishForm.style.display = 'none';
+      const sent = document.getElementById('wishSent');
+      if (sent) sent.style.display = 'block';
+      fireConfetti(0.5);
+    });
+  }
 });
 </script>
 <script src="script.js"></script>

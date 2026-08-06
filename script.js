@@ -246,10 +246,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- send a wish back ---------- */
   const wishForm = document.getElementById('wishForm');
-  wishForm.addEventListener('submit', e => {
-    e.preventDefault();
-    wishForm.style.display = 'none';
-    document.getElementById('wishSent').style.display = 'block';
-    fireConfetti(0.5);
-  });
+  if (wishForm) {
+    wishForm.addEventListener('submit', e => {
+      e.preventDefault();
+      wishForm.style.display = 'none';
+      const sent = document.getElementById('wishSent');
+      if (sent) sent.style.display = 'block';
+      fireConfetti(0.5);
+    });
+  }
+
+  /* ---------- gallery modal popup ---------- */
+  const thumbs = [...document.querySelectorAll('.gallery-thumb')];
+  if (thumbs.length) {
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryImage');
+    const closeBtn = document.getElementById('galleryClose');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+    const images = thumbs.map(t => t.src);
+    let idx = 0;
+
+    function openModal(i) {
+      idx = i;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      modalImg.src = images[idx];
+      modalImg.alt = thumbs[idx].alt || '';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+    function showIndex(i) {
+      idx = (i + images.length) % images.length;
+      modalImg.src = images[idx];
+      modalImg.alt = thumbs[idx].alt || '';
+    }
+
+    thumbs.forEach((t, i) => t.addEventListener('click', () => openModal(i)));
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    prevBtn.addEventListener('click', () => showIndex(idx - 1));
+    nextBtn.addEventListener('click', () => showIndex(idx + 1));
+    window.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') showIndex(idx - 1);
+      if (e.key === 'ArrowRight') showIndex(idx + 1);
+    });
+  }
 });
