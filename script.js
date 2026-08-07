@@ -94,23 +94,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const musicBtn = document.getElementById('musicToggle');
   const bgMusic = document.getElementById('bgMusic');
   let musicOn = false;
-  musicBtn.addEventListener('click', () => {
-    if (!bgMusic.querySelector('source').src) {
-      musicBtn.textContent = '🎵';
-      musicBtn.title = 'Add a song file to enable music';
-      return;
-    }
-    musicOn = !musicOn;
-    if (musicOn) {
-      bgMusic.play().catch(() => {});
-      musicBtn.classList.add('spinning');
-      musicBtn.textContent = '🔊';
-    } else {
-      bgMusic.pause();
-      musicBtn.classList.remove('spinning');
-      musicBtn.textContent = '🎵';
-    }
-  });
+
+  const getAudioSourceUrl = (audioEl) => {
+    const sourceEl = audioEl?.querySelector('source');
+    return sourceEl?.getAttribute('src') || sourceEl?.src || '';
+  };
+
+  const hasAudioSource = (audioEl) => Boolean(getAudioSourceUrl(audioEl));
+
+  const updateMusicUi = () => {
+    if (!musicBtn) return;
+    musicBtn.textContent = musicOn ? '🔊' : '🎵';
+    musicBtn.classList.toggle('spinning', musicOn);
+    musicBtn.title = hasAudioSource(bgMusic)
+      ? (musicOn ? 'Pause background music' : 'Play background music')
+      : 'Add a song file to enable music';
+  };
+
+  if (musicBtn && bgMusic) {
+    musicBtn.addEventListener('click', async () => {
+      if (!hasAudioSource(bgMusic)) {
+        updateMusicUi();
+        return;
+      }
+
+      if (!musicOn) {
+        try {
+          await bgMusic.play();
+          musicOn = true;
+        } catch (error) {
+          console.warn('Background music could not start:', error);
+          musicOn = false;
+        }
+      } else {
+        bgMusic.pause();
+        musicOn = false;
+      }
+
+      updateMusicUi();
+    });
+
+    bgMusic.addEventListener('error', () => {
+      musicOn = false;
+      updateMusicUi();
+    });
+
+    updateMusicUi();
+  }
 
   /* ---------- gift box ---------- */
   const gift = document.getElementById('giftBox');
@@ -202,28 +232,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const voiceStatus = document.getElementById('voiceStatus');
   let voicePlaying = false;
 
-  voiceBtn.addEventListener('click', () => {
-    if (!voiceNote.querySelector('source').src) {
-      voiceStatus.textContent = 'Add your recorded message file to hear this 🎙️';
-      return;
-    }
-    if (!voicePlaying) {
-      voiceNote.play();
-      voiceBtn.textContent = '❚❚';
-      voiceStatus.textContent = 'Playing…';
-    } else {
-      voiceNote.pause();
-      voiceBtn.textContent = '▶';
-      voiceStatus.textContent = 'Paused';
-    }
-    voicePlaying = !voicePlaying;
-  });
+  const updateVoiceUi = () => {
+    if (!voiceBtn || !voiceStatus) return;
+    voiceBtn.textContent = voicePlaying ? '❚❚' : '▶';
+    voiceStatus.textContent = voicePlaying ? 'Playing…' : 'Press play when you\'re ready';
+  };
 
-  voiceNote.addEventListener('ended', () => {
-    voicePlaying = false;
-    voiceBtn.textContent = '▶';
-    voiceStatus.textContent = 'Press play when you\'re ready';
-  });
+  if (voiceBtn && voiceNote && voiceStatus) {
+    voiceBtn.addEventListener('click', async () => {
+      if (!hasAudioSource(voiceNote)) {
+        voiceStatus.textContent = 'Add your recorded message file to hear this 🎙️';
+        return;
+      }
+
+      if (!voicePlaying) {
+        try {
+          await voiceNote.play();
+          voicePlaying = true;
+        } catch (error) {
+          console.warn('Voice message could not start:', error);
+          voiceStatus.textContent = 'Audio couldn’t start on this browser';
+          return;
+        }
+      } else {
+        voiceNote.pause();
+        voicePlaying = false;
+      }
+
+      updateVoiceUi();
+    });
+
+    voiceNote.addEventListener('ended', () => {
+      voicePlaying = false;
+      updateVoiceUi();
+    });
+
+    voiceNote.addEventListener('error', () => {
+      voicePlaying = false;
+      voiceStatus.textContent = 'Audio could not be loaded';
+      updateVoiceUi();
+    });
+
+    updateVoiceUi();
+  }
 
   /* ---------- confetti on final section ---------- */
   function fireConfetti(power) {
