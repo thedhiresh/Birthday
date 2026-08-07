@@ -111,7 +111,62 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'Add a song file to enable music';
   };
 
+  const startBackgroundMusic = async (shouldUnmute = false, attempt = 0) => {
+    if (!bgMusic || !hasAudioSource(bgMusic)) {
+      updateMusicUi();
+      return false;
+    }
+
+    try {
+      bgMusic.volume = 0.35;
+      bgMusic.muted = !shouldUnmute;
+      bgMusic.currentTime = 0;
+      await bgMusic.play();
+      bgMusic.muted = false;
+      musicOn = true;
+      updateMusicUi();
+      return true;
+    } catch (error) {
+      if (attempt < 3 && bgMusic.readyState < 2) {
+        window.setTimeout(() => startBackgroundMusic(shouldUnmute, attempt + 1), 400);
+      } else {
+        console.warn('Background music could not start:', error);
+        musicOn = false;
+        updateMusicUi();
+      }
+      return false;
+    }
+  };
+
   if (musicBtn && bgMusic) {
+    const audioSrc = new URL('./music/bg.mp3', window.location.href).href;
+    if (bgMusic.getAttribute('src') !== audioSrc) {
+      bgMusic.src = audioSrc;
+      bgMusic.load();
+    }
+
+    const resumeAudioOnInteraction = () => {
+      if (!musicOn) {
+        startBackgroundMusic(true);
+      }
+    };
+
+    ['pointerdown', 'touchstart', 'keydown', 'click'].forEach((eventName) => {
+      window.addEventListener(eventName, resumeAudioOnInteraction, { once: true });
+    });
+
+    bgMusic.addEventListener('loadeddata', () => {
+      if (!musicOn) {
+        startBackgroundMusic(false);
+      }
+    });
+
+    bgMusic.addEventListener('canplaythrough', () => {
+      if (!musicOn) {
+        startBackgroundMusic(false);
+      }
+    });
+
     musicBtn.addEventListener('click', async () => {
       if (!hasAudioSource(bgMusic)) {
         updateMusicUi();
@@ -119,19 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (!musicOn) {
-        try {
-          await bgMusic.play();
-          musicOn = true;
-        } catch (error) {
-          console.warn('Background music could not start:', error);
-          musicOn = false;
-        }
+        await startBackgroundMusic(true);
       } else {
         bgMusic.pause();
         musicOn = false;
+        updateMusicUi();
       }
-
-      updateMusicUi();
     });
 
     bgMusic.addEventListener('error', () => {
@@ -139,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateMusicUi();
     });
 
+    startBackgroundMusic(false);
     updateMusicUi();
   }
 
