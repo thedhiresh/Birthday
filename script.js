@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startBackgroundMusic(false);
     updateMusicUi();
   }
+    
 
   /* ---------- gift box ---------- */
   const gift = document.getElementById('giftBox');
